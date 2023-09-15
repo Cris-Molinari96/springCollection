@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add empolyee</title>
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form action="#" th:action="@{/api/employees/validate-form}" th:object="${empl}" method="post" id="form-validate">
+                <div class="my-3">
+                    <h2>Inserisci Employee</h2>
+                </div>
+<!-- ! aggiunta del campo hidden contente l'id, NECESSARIO PER ESEGUIRE AGGIORNAMENTI-->
+                <input type="hidden" th:field="*{id}" />
+
+                <div class="form-group mt-4">
+                    <input type="text" class="form-control" placeholder="Inserisci il tuo nome" th:field="*{firstName}" id="n">
+                    <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mt-4">
+                    <input type="text" class="form-control" placeholder="Inserisci il tuo cognome"
+                           th:field="*{lastName}" id="s">
+                    <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="text-danger"></span>
+                </div>
+                <div class="form-group mt-4">
+                    <input type="email" class="form-control" placeholder="Inserisci la tua email" th:field="*{email}" id="em">
+                    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></span>
+                </div>
+                <div class="d-flex justify-content-center mt-4">
+                    <button th:onclick="submit()" type="submit" class="btn btn-primary">Invia</button>
+                </div>
+            </form>
+
+            <hr>
+            <a th:href="@{/api/employees/list}">Ritorna alla lista</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    console.log("ciao")
+    $(document).ready(function (){
+        $("#form-validate").submit(function (e){
+            e.preventDefault();
+            const n = $("#n").val();
+            const s = $("#s").val();
+            const em = $("#em").val();
+            if(n.trim().length !== 0 && s.trim().length !== 0 && em.trim().length !== 0){
+                alert("Hai aggiornato correttamente il nuovo dipendente!");
+            }
+        })
+    })
+
+</script>
+</body>
+</html>

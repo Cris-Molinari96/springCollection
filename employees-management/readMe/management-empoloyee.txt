@@ -1,0 +1,24 @@
+Dobbiamo quindi creare un'interfaccia utente Web per la rubrica dei dipendenti.
+
+Gli utenti devono essere in grado di:
+1) ottenere un elenco di dipendenti, 
+2) aggiungere un nuovo dipendente, 
+3) aggiornare un dipendente 
+4) e cancellare un dipendente.
+
+e inoltre usa Thymeleaf e Spring Boot.
+
+
+Progetto: 
+- Crezione database, tabelle ecc
+- Creazione Entity(Employee) e aggiunta dei campi 
+- Creazione interfaccia jpa repository
+- Creazione Service (classe e interfaccia), istanza repo, utilizzo metodi http
+- Creazione Controller esposizione end-point, utilizzo metodi service
+
+
+Ricorda che: quando devi ottenere un form, da un tasto che viene cliccato nella vista, dobbiamo impostare quel metodo
+nel controller come Get perch+ dobbiamo ottenere il form, quando quel form viene compilato, deve essere mandato ad un end-point col metodo post!
+
+
+

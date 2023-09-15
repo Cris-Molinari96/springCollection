@@ -5,7 +5,8 @@
     <title>Pagina di conferma</title>
 </head>
 <body>
-Il cliente è confermato! <br>
-Benvenuto --> <span th:text="${customer.firstName + ' ' + customer.lastName}"></span>
+<span th:text="${customer.firstName + ' ' + customer.lastName}" ></span>
+<br>
+<p> Input courseCourse: <span th:text="${customer.courseCode}"></span> </p>
 </body>
 </html>
