@@ -22,7 +22,7 @@ public class CRUDdemoApplication {
     @Bean
     public CommandLineRunner commandLineRunner(StudentDao studentDao) {
         return runner -> {
-            deleteStudentBySurname(studentDao);
+            readAllStudentBySurname(studentDao);
         };
     }
 

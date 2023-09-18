@@ -40,7 +40,7 @@ public class StudentDaoImpl implements StudentDao {
     }
 
     // ! READ
-    // per i metodi di lettura dati nel db non abbiamo bisongo trattare questo
+    // per i metodi di lettura dati nel db non abbiamo bisogno di trattare questo
     // metodo con un comportamento transazionale, in quanto non stiamo salvando o sovrascrivendo dati nel db
     @Override
     public Student findStudent(Integer id) {
@@ -57,7 +57,6 @@ public class StudentDaoImpl implements StudentDao {
 
     // nelle query, si fa riferimento all'entità e non alla tabella
     // cosi come per i campi dell'entità e non sui campi della tabella
-
     @Override
     public Student findStudentByName(String name) {
 
