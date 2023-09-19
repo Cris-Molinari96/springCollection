@@ -14,7 +14,7 @@ import javax.sql.DataSource;
 public class SecurityConfig {
 
     /** ? Supporto JDBC
-     * ! Qui si dice a spring di usare l'autenticazione JDBC con la nostra fone dati
+     * ! Qui si dice a spring di usare l'autenticazione JDBC con la nostra fonte dati
      * ! Inietto l'origine dei dati
      * Questo dirà */
 @Bean
