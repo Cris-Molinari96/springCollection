@@ -30,7 +30,7 @@
                 <div class="form-group mt-4">
                     <input th:field="*{username}" name="username" type="text" class="form-control"
                            placeholder="Username">
-
+                    <span th:if="${userexists}" class="text-danger">UserName già in uso...</span>
                     <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="text-danger"></span>
                 </div>
 

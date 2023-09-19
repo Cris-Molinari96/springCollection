@@ -1,11 +1,11 @@
 package com.example.application.controller;
 
 import com.example.application.dto.UserDto;
+import com.example.application.model.User;
 import com.example.application.service.user.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
@@ -58,17 +58,26 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String registerSave(@Valid @ModelAttribute("userDto") UserDto userDto, BindingResult bindingResult) {
+    public String registerSave(@Valid @ModelAttribute("userDto") UserDto userDto, BindingResult bindingResult,Model model) {
 
         if (bindingResult.hasErrors()) {
             return "/register";
         } else {
-            userService.save(userDto);
+            User user = userService.findByUsername(userDto.getUsername());
+            if (user != null) {
+                model.addAttribute("userexists",user);
+                return"/register";
+            } else {
+                // in questo modo stiamo passando un attributo alla pagina di login in modo da visualizzare in caso di register success
+                String strSucces = "Registrazione effettuata";
+                model.addAttribute("registerSuccess",strSucces);
+                userService.save(userDto);
+                return "login";
+            }
+
 //! con la redirect abilitiamo il messaggio di avvenuta registrazione, in quanto stiamo rimandando indietro il from con un parametro di success,
 //! il quale verrà catturato da th:param in register.html
-            return "redirect:/login?registerSuccess";
         }
-
     }
 
     @PostMapping("/process-form-login")
