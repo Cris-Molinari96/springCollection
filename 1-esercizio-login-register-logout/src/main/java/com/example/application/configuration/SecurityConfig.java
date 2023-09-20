@@ -28,6 +28,7 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         //! Permette l'accesso alle rotte `/register` e `/home` a tutti gli utenti
         http.authorizeHttpRequests(c -> c
+                        .requestMatchers("/").permitAll()
                         .requestMatchers("/home").permitAll()
                         .requestMatchers("/register").permitAll()
                 )

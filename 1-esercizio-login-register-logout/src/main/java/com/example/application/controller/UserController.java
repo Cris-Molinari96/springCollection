@@ -32,12 +32,17 @@ public class UserController {
         this.userService = userService;
     }
 
+    @GetMapping("/")
+    public String getHomepage(){
+         return "homepage";
+    }
+
     /**
      * ! utilizzo Model per passare l'oggetto utente alla vista
      * ! Principal rappresenta l'utente autenticato
      */
     @GetMapping("/home")
-    public String getHome(Model model, Principal principal) {
+    public String getHomeAccount(Model model, Principal principal) {
 
         UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
         model.addAttribute("userdetails", userDetails);
