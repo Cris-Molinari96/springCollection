@@ -18,9 +18,8 @@
      * e che viene condiviso dal (model=contenitore di attributi) tramite il controller
      * post rappresenta il tipo del metodo -->
 <form th:action="@{/processForm}" th:object="${customer}" method="post">
-
-<!--    ! infatti si dive proprio che tramite th:field stiamo legando i campi all'th:object che ci è stato passato dal controller -->
-
+<!--    ! infatti si dive proprio che tramite th:field stiamo legando i campi
+! al th:object che ci è stato passato dal controller -->
     CourseCode (*)<input type="text" th:field="*{courseCode}">
     <span th:if="${#fields.hasErrors('courseCode')}"
           th:errors = "*{courseCode}"

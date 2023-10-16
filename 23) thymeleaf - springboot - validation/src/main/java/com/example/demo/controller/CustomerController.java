@@ -35,7 +35,8 @@ public class CustomerController {
     @PostMapping("/processForm")
     public String processForm(
             @Valid @ModelAttribute("customer") Customer customer,
-            BindingResult bindingResult // ! --> Quest'oggetto è responsabile di catturare tutti gli errori che vengono generati per quanto riguarda l'obj customer, vedi screenUtili
+            BindingResult bindingResult // ! --> Quest'oggetto è responsabile di catturare tutti gli errori
+            //! che vengono generati per quanto riguarda l'obj customer, vedi screenUtili
     ) {
 //        System.out.println("BindingResult.toString() | " +bindingResult.toString() + "|"); // --> questo ci permette di verificare se si sono generati degli errori e quanti stampando il numero
 //        System.out.println("Catch the error | "+bindingResult + " |"); // questo stampa il tipo di errore generato dai campi d'input

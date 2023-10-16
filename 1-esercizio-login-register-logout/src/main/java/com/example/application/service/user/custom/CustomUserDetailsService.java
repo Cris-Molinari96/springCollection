@@ -21,6 +21,7 @@ import java.util.Collection;
  */
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
+
     @Autowired
     private UserRepo userRepo;
 
@@ -28,7 +29,7 @@ public class CustomUserDetailsService implements UserDetailsService {
      * ! Per utilizzare questa classe abbiamo bisogno di sovrascrivere il metodo loadUserByUsername di spring security per poterla utilizzare
      * ! Il metodo è responsabile del caricamento delle informazioni di base dell'utente dal database, lo fa tramite la userRepo
      * ! Il metodo SARA UTILIZZATO DA SPRING SECURITY
-     * Il metodo deve restituire un oggetto di tipo UserDetail se l'utente viene trovato altrimenti lancia un eccezzione
+     * Il metodo deve restituire un oggetto di tipo UserDetail se l'utente viene trovato altrimenti lancia un eccezione
      */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
